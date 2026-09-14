@@ -57,11 +57,7 @@ function App() {
                 <div>
                     <p className="eyebrow">Mobile Conversion Assistant</p>
 
-                    <h1>Start a natural mobile conversation</h1>
 
-                    <p className="introduction">
-                        Select the customer's current department and relevant phone usage.
-                    </p>
                 </div>
             </header>
 
