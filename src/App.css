@@ -173,4 +173,8 @@ button {
     .recommendation {
         width: fit-content;
     }
+
+    .eyebrow {
+        padding-left: 10px;
+    }
 }
