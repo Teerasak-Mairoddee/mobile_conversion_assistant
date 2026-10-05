@@ -95,6 +95,7 @@ button {
 .result-card {
     position: relative;
     margin-top: 24px;
+    scroll-margin-top: 12px;
 }
 
 .replay-button {
