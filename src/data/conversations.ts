@@ -113,7 +113,7 @@ export const conversations: ConversationSeed[] = [
         priority: 8,
         active: true,
     },
-{
+    {
         id: "VISION-SPORTS-001",
         department: "Vision",
         usageCategory: "Live sport",
