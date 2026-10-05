@@ -93,8 +93,33 @@ button {
     }
 
 .result-card {
+    position: relative;
     margin-top: 24px;
 }
+
+.shuffle-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: grid;
+    width: 44px;
+    min-height: 44px;
+    padding: 0;
+    place-items: center;
+    border-radius: 50%;
+    color: #4b2bb6;
+    background: #eeeafd;
+    transition: transform 0.2s ease;
+}
+
+    .shuffle-button:hover {
+        transform: rotate(-15deg);
+    }
+
+    .shuffle-button:focus-visible {
+        outline: 3px solid #5c35d9;
+        outline-offset: 2px;
+    }
 
 .result-heading {
     display: flex;
@@ -102,6 +127,7 @@ button {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 20px;
+    padding-right: 56px;
 }
 
     .result-heading h2 {
