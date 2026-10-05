@@ -176,10 +176,6 @@ function App() {
                     >
                         <div className="result-heading">
                             <div>
-                                <p className="eyebrow">
-                                    {selectedConversation.id}
-                                </p>
-
                                 <h2>
                                     {selectedConversation.usageCategory}
                                 </h2>
