@@ -97,7 +97,7 @@ button {
     margin-top: 24px;
 }
 
-.shuffle-button {
+.replay-button {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -109,17 +109,58 @@ button {
     border-radius: 50%;
     color: #4b2bb6;
     background: #eeeafd;
-    transition: transform 0.2s ease;
+    transition: transform 0.15s ease, background 0.15s ease;
 }
 
-    .shuffle-button:hover {
-        transform: rotate(-15deg);
+    .replay-button:hover {
+        background: #e2dbfb;
     }
 
-    .shuffle-button:focus-visible {
+    .replay-button:active {
+        transform: scale(0.92);
+    }
+
+    .replay-button:focus-visible {
         outline: 3px solid #5c35d9;
         outline-offset: 2px;
     }
+
+    .replay-button .spin {
+        animation: replay-spin 0.5s ease-in-out;
+    }
+
+.conversation-body {
+    animation: conversation-fade-in 0.35s ease-out;
+}
+
+@keyframes replay-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes conversation-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .replay-button .spin,
+    .conversation-body {
+        animation: none;
+    }
+}
 
 .result-heading {
     display: flex;

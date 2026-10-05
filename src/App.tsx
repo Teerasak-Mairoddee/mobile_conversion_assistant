@@ -23,6 +23,7 @@ function App() {
     const [department, setDepartment] = useState<Department | "">("");
     const [usageCategory, setUsageCategory] = useState("");
     const [selectedId, setSelectedId] = useState("");
+    const [replayCount, setReplayCount] = useState(0);
 
     const departments = Object.keys(departmentLabels) as Department[];
 
@@ -139,17 +140,20 @@ function App() {
                     {matchingConversations.length > 1 && (
                         <button
                             type="button"
-                            className="shuffle-button"
-                            aria-label="Shuffle to a new variation"
+                            className="replay-button"
+                            aria-label="Show a new variation"
                             title="New variation"
-                            onClick={() =>
+                            onClick={() => {
+                                setReplayCount((count) => count + 1);
                                 pickRandomConversation(
                                     matchingConversations,
                                     selectedConversation.id
-                                )
-                            }
+                                );
+                            }}
                         >
                             <svg
+                                key={replayCount}
+                                className={replayCount ? "spin" : undefined}
                                 viewBox="0 0 24 24"
                                 width="22"
                                 height="22"
@@ -160,65 +164,67 @@ function App() {
                                 strokeLinejoin="round"
                                 aria-hidden="true"
                             >
-                                <polyline points="16 3 21 3 21 8" />
-                                <line x1="4" y1="20" x2="21" y2="3" />
-                                <polyline points="21 16 21 21 16 21" />
-                                <line x1="15" y1="15" x2="21" y2="21" />
-                                <line x1="4" y1="4" x2="9" y2="9" />
+                                <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" />
+                                <path d="M21 3v5h-5" />
                             </svg>
                         </button>
                     )}
 
-                    <div className="result-heading">
-                        <div>
-                            <p className="eyebrow">
-                                {selectedConversation.id}
-                            </p>
+                    <div
+                        key={selectedConversation.id}
+                        className="conversation-body"
+                    >
+                        <div className="result-heading">
+                            <div>
+                                <p className="eyebrow">
+                                    {selectedConversation.id}
+                                </p>
 
-                            <h2>
-                                {selectedConversation.usageCategory}
-                            </h2>
+                                <h2>
+                                    {selectedConversation.usageCategory}
+                                </h2>
 
-                            <p className="variation-count">
-                                Variation{" "}
-                                {matchingConversations.indexOf(
-                                    selectedConversation
-                                ) + 1}{" "}
-                                of {matchingConversations.length}
-                            </p>
+                                <p className="variation-count">
+                                    Variation{" "}
+                                    {matchingConversations.indexOf(
+                                        selectedConversation
+                                    ) + 1}{" "}
+                                    of {matchingConversations.length}
+                                </p>
+                            </div>
+
+                            <span className="recommendation">
+                                {selectedConversation.recommendation}
+                            </span>
                         </div>
 
-                        <span className="recommendation">
-                            {selectedConversation.recommendation}
-                        </span>
+                        <article className="conversation-section">
+                            <span className="step-number">1</span>
+
+                            <div>
+                                <h3>Ask</h3>
+                                <p>{selectedConversation.openingQuestion}</p>
+                            </div>
+                        </article>
+
+                        <article className="conversation-section">
+                            <span className="step-number">2</span>
+
+                            <div>
+                                <h3>Bridge</h3>
+                                <p>{selectedConversation.bridgeLine}</p>
+                            </div>
+                        </article>
+
+                        <article className="conversation-section">
+                            <span className="step-number">3</span>
+
+                            <div>
+                                <h3>Continue</h3>
+                                <p>{selectedConversation.followUpQuestion}</p>
+                            </div>
+                        </article>
                     </div>
-
-                    <article className="conversation-section">
-                        <span className="step-number">1</span>
-
-                        <div>
-                            <h3>Ask</h3>
-                            <p>{selectedConversation.openingQuestion}</p>
-                        </div>
-                    </article>
-
-                    <article className="conversation-section">
-                        <span className="step-number">2</span>
-
-                        <div>
-                            <h3>Bridge</h3>
-                            <p>{selectedConversation.bridgeLine}</p>
-                        </div>
-                    </article>
-
-                    <article className="conversation-section">
-                        <span className="step-number">3</span>
-
-                        <div>
-                            <h3>Continue</h3>
-                            <p>{selectedConversation.followUpQuestion}</p>
-                        </div>
-                    </article>
 
                     <button
                         type="button"
