@@ -95,7 +95,7 @@ export const conversations: ConversationSeed[] = [
             "Your phone becomes the main control point for connected appliances, making reliability and battery life important.",
         followUpQuestion:
             "How well does your current phone handle your smart-home applications?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 10,
         active: true,
     },
@@ -109,7 +109,7 @@ export const conversations: ConversationSeed[] = [
             "Reviewing the household's mobile plans could help identify better-value allowances or unused data.",
         followUpQuestion:
             "How many mobile plans are currently used in your household?",
-        recommendation: "Multiple contract review",
+        recommendation: "Family plan",
         priority: 8,
         active: true,
     },
@@ -319,7 +319,7 @@ export const conversations: ConversationSeed[] = [
             "That works best with a phone that is quick and fully up to date, so it is worth checking how yours is holding up.",
         followUpQuestion:
             "How long have you had your current phone?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -403,7 +403,7 @@ export const conversations: ConversationSeed[] = [
             "Having shows downloaded and data to spare makes travel much easier, especially with roaming included.",
         followUpQuestion:
             "Does your current plan include roaming when you travel abroad?",
-        recommendation: "Handset contract",
+        recommendation: "Phone contract review",
         priority: 8,
         active: true,
     },
@@ -417,7 +417,7 @@ export const conversations: ConversationSeed[] = [
             "A commute is a great time to catch up on shows, and the right phone and data plan make that easy.",
         followUpQuestion:
             "How do you usually pass the time on your commute?",
-        recommendation: "Handset contract",
+        recommendation: "Phone contract review",
         priority: 8,
         active: true,
     },
@@ -473,7 +473,7 @@ export const conversations: ConversationSeed[] = [
             "A newer phone with a better camera and enough data makes those calls look and sound much more professional.",
         followUpQuestion:
             "How do you find the camera and call quality on your current phone?",
-        recommendation: "SIM-only data plan",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -543,7 +543,7 @@ export const conversations: ConversationSeed[] = [
             "If your phone is the key to your accounts, keeping it secure and supported is just as important as the laptop.",
         followUpQuestion:
             "How old is the phone you use for those codes?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 7,
         active: true,
     },
@@ -557,7 +557,7 @@ export const conversations: ConversationSeed[] = [
             "That usually means verifying with your phone, so it is a good moment to check your phone is still up to the job.",
         followUpQuestion:
             "When did you last upgrade your phone?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 7,
         active: true,
     },
@@ -711,7 +711,7 @@ export const conversations: ConversationSeed[] = [
             "The app will live on your phone, so a reliable, up-to-date handset makes the whole experience smoother.",
         followUpQuestion:
             "Is your phone recent enough to run the latest apps?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 10,
         active: true,
     },
@@ -725,7 +725,7 @@ export const conversations: ConversationSeed[] = [
             "All of those are run from your phone, so its battery and reliability really matter.",
         followUpQuestion:
             "How is the battery life on your current phone?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 10,
         active: true,
     },
@@ -739,7 +739,7 @@ export const conversations: ConversationSeed[] = [
             "Bringing everyone onto one plan can often save money and make it easier to share data.",
         followUpQuestion:
             "Is everyone on separate contracts at the moment?",
-        recommendation: "Multiple contract review",
+        recommendation: "Family plan",
         priority: 8,
         active: true,
     },
@@ -753,7 +753,7 @@ export const conversations: ConversationSeed[] = [
             "A shared family plan means data can go where it is needed, without top-ups each month.",
         followUpQuestion:
             "Who is the household's mobile bill holder?",
-        recommendation: "Multiple contract review",
+        recommendation: "Family plan",
         priority: 8,
         active: true,
     },
@@ -781,7 +781,7 @@ export const conversations: ConversationSeed[] = [
             "With so much to set up, reviewing your mobile plan now could save money while bills are being sorted.",
         followUpQuestion:
             "When is your mobile contract due for renewal?",
-        recommendation: "SIM-only data plan",
+        recommendation: "Phone contract review",
         priority: 9,
         active: true,
     },
@@ -865,7 +865,7 @@ export const conversations: ConversationSeed[] = [
             "Those apps work best on an up-to-date phone, so it is a good chance to check yours is still supported.",
         followUpQuestion:
             "When did you last upgrade your phone?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -879,7 +879,7 @@ export const conversations: ConversationSeed[] = [
             "If you are out and about in the mornings, a plan with enough data keeps your travel apps and music going.",
         followUpQuestion:
             "How much data do you get on your current plan?",
-        recommendation: "Phone contract review",
+        recommendation: "SIM-only data plan",
         priority: 8,
         active: true,
     },
@@ -935,7 +935,7 @@ export const conversations: ConversationSeed[] = [
             "To get the most from those smart features, your phone needs to run the latest version of the app.",
         followUpQuestion:
             "Is your phone still getting software updates?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -963,7 +963,7 @@ export const conversations: ConversationSeed[] = [
             "They are all run from your phone, so it is worth checking your handset is up to the job.",
         followUpQuestion:
             "How old is the phone you would use to control it?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -1033,7 +1033,7 @@ export const conversations: ConversationSeed[] = [
             "Smartwatches need a compatible, up-to-date phone, so it is worth checking yours will support all the features.",
         followUpQuestion:
             "How old is your current phone?",
-        recommendation: "Smartwatch plan add-on",
+        recommendation: "Handset contract",
         priority: 9,
         active: true,
     },
@@ -1061,7 +1061,7 @@ export const conversations: ConversationSeed[] = [
             "The app lives on your phone, so a reliable, up-to-date handset makes setup and control much easier.",
         followUpQuestion:
             "Is your phone recent enough to run the latest apps?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -1075,7 +1075,7 @@ export const conversations: ConversationSeed[] = [
             "That works over mobile data, so a dependable plan keeps you in control wherever you are.",
         followUpQuestion:
             "How good is your signal and data where you usually are?",
-        recommendation: "Phone contract review",
+        recommendation: "SIM-only data plan",
         priority: 8,
         active: true,
     },
@@ -1089,7 +1089,7 @@ export const conversations: ConversationSeed[] = [
             "As you add more devices, your phone becomes the remote for everything, so it is worth making sure it is up to it.",
         followUpQuestion:
             "How is your phone's battery holding up day to day?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -1117,7 +1117,7 @@ export const conversations: ConversationSeed[] = [
             "Features like spatial audio and the best codecs work best with a newer phone.",
         followUpQuestion:
             "How old is your current phone?",
-        recommendation: "SIM-only data plan",
+        recommendation: "Handset contract",
         priority: 8,
         active: true,
     },
@@ -1159,7 +1159,7 @@ export const conversations: ConversationSeed[] = [
             "Now is a good time to check you are on the right plan for the new handset, especially for data.",
         followUpQuestion:
             "Is your current contract still in its minimum term?",
-        recommendation: "SIM-only data plan",
+        recommendation: "Phone contract review",
         priority: 9,
         active: true,
     },
@@ -1215,7 +1215,7 @@ export const conversations: ConversationSeed[] = [
             "For work or study on the move, a good phone plan with hotspot data is a handy backup.",
         followUpQuestion:
             "Does your current plan allow tethering?",
-        recommendation: "Tablet data plan",
+        recommendation: "SIM-only data plan",
         priority: 8,
         active: true,
     },
@@ -1299,7 +1299,7 @@ export const conversations: ConversationSeed[] = [
             "Your phone handles everything from tracking to payments, so keeping it current makes life easier.",
         followUpQuestion:
             "Is your phone still getting the latest updates?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 7,
         active: true,
     },
@@ -1383,7 +1383,7 @@ export const conversations: ConversationSeed[] = [
             "If they need a plan too, we can look at adding them to a family deal.",
         followUpQuestion:
             "How many people in your household have phones?",
-        recommendation: "Phone contract review",
+        recommendation: "Family plan",
         priority: 8,
         active: true,
     },
@@ -1411,7 +1411,7 @@ export const conversations: ConversationSeed[] = [
             "It could be worth checking the plan at the same time to make sure it matches the new phone.",
         followUpQuestion:
             "Are you happy with your current data allowance?",
-        recommendation: "Handset contract",
+        recommendation: "Phone contract review",
         priority: 7,
         active: true,
     },
@@ -1453,7 +1453,7 @@ export const conversations: ConversationSeed[] = [
             "If your phone is your wallet too, it is worth making sure it is secure and up to date.",
         followUpQuestion:
             "Is your phone still getting security updates?",
-        recommendation: "Phone contract review",
+        recommendation: "Handset contract",
         priority: 7,
         active: true,
     },

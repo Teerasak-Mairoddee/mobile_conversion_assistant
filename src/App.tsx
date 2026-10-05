@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { conversations } from "./data/conversations";
 import {
     departmentLabels,
@@ -24,6 +24,7 @@ function App() {
     const [usageCategory, setUsageCategory] = useState("");
     const [selectedId, setSelectedId] = useState("");
     const [replayCount, setReplayCount] = useState(0);
+    const resultRef = useRef<HTMLElement>(null);
 
     const departments = Object.keys(departmentLabels) as Department[];
 
@@ -49,6 +50,28 @@ function App() {
     const selectedConversation = matchingConversations.find(
         (conversation) => conversation.id === selectedId
     );
+
+    useEffect(() => {
+        const resultCard = resultRef.current;
+
+        // Only scroll when part of the conversation is below the fold.
+        if (
+            !usageCategory ||
+            !resultCard ||
+            resultCard.getBoundingClientRect().bottom <= window.innerHeight
+        ) {
+            return;
+        }
+
+        const reduceMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        resultCard.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+            block: "start",
+        });
+    }, [usageCategory]);
 
     function pickRandomConversation(
         candidates: ConversationSeed[],
@@ -130,7 +153,7 @@ function App() {
             </section>
 
             {selectedConversation && (
-                <section className="result-card">
+                <section ref={resultRef} className="result-card">
                     {matchingConversations.length > 1 && (
                         <button
                             type="button"
