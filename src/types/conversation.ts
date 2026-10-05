@@ -1,10 +1,22 @@
-export type Department = "Vision" | "Computing" | "Gaming" | "MDA";
+export type Department =
+    | "Gaming"
+    | "SKA"
+    | "CESmartTech"
+    | "Collections"
+    | "Computing"
+    | "KnowHow"
+    | "MDA"
+    | "Vision";
 
 export const departmentLabels: Record<Department, string> = {
-    Vision: "Vision",
-    Computing: "Computing",
-    Gaming: "Gaming",
+    Gaming: "Gaming Zone",
+    SKA: "SKA Zone (small kitchen appliances)",
+    CESmartTech: "CE Smart Tech Zone",
+    Collections: "Collections Zone",
+    Computing: "Computing Zone",
+    KnowHow: "Know How / Cashdesk",
     MDA: "MDA",
+    Vision: "Vision",
 };
 
 export interface ConversationSeed {

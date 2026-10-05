@@ -88,7 +88,7 @@ function App() {
             </header>
 
             <section className="selection-card">
-                <label htmlFor="department">Department</label>
+                <label htmlFor="department">Zone</label>
 
                 <select
                     id="department"
@@ -99,7 +99,7 @@ function App() {
                         )
                     }
                 >
-                    <option value="">Select a department</option>
+                    <option value="">Select a zone</option>
 
                     {departments.map((departmentOption) => (
                         <option
@@ -111,7 +111,7 @@ function App() {
                     ))}
                 </select>
 
-                <label htmlFor="usage">Phone usage</label>
+                <label htmlFor="usage">Topic</label>
 
                 <select
                     id="usage"
@@ -119,7 +119,7 @@ function App() {
                     disabled={!department}
                     onChange={(event) => handleUsageChange(event.target.value)}
                 >
-                    <option value="">Select a usage category</option>
+                    <option value="">Select a topic</option>
 
                     {availableUsageCategories.map((category) => (
                         <option key={category} value={category}>
