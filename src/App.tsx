@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
     const [department, setDepartment] = useState<Department | "">("");
     const [usageCategory, setUsageCategory] = useState("");
-    const [showResult, setShowResult] = useState(false);
+    const [selectedId, setSelectedId] = useState("");
 
     const departments = Object.keys(departmentLabels) as Department[];
 
@@ -27,27 +27,41 @@ function App() {
         ];
     }, [department]);
 
-    const selectedConversation = useMemo(() => {
-        return conversations
-            .filter(
-                (conversation) =>
-                    conversation.active &&
-                    conversation.department === department &&
-                    conversation.usageCategory === usageCategory
-            )
-            .sort((a, b) => b.priority - a.priority)[0];
+    const matchingConversations = useMemo(() => {
+        return conversations.filter(
+            (conversation) =>
+                conversation.active &&
+                conversation.department === department &&
+                conversation.usageCategory === usageCategory
+        );
     }, [department, usageCategory]);
+
+    const selectedConversation = matchingConversations.find(
+        (conversation) => conversation.id === selectedId
+    );
+
+    function pickRandomConversation(excludeId?: string) {
+        const options =
+            matchingConversations.length > 1
+                ? matchingConversations.filter(
+                      (conversation) => conversation.id !== excludeId
+                  )
+                : matchingConversations;
+        const choice = options[Math.floor(Math.random() * options.length)];
+
+        setSelectedId(choice?.id ?? "");
+    }
 
     function handleDepartmentChange(value: Department | "") {
         setDepartment(value);
         setUsageCategory("");
-        setShowResult(false);
+        setSelectedId("");
     }
 
     function resetAssistant() {
         setDepartment("");
         setUsageCategory("");
-        setShowResult(false);
+        setSelectedId("");
     }
 
     return (
@@ -93,7 +107,7 @@ function App() {
                     disabled={!department}
                     onChange={(event) => {
                         setUsageCategory(event.target.value);
-                        setShowResult(false);
+                        setSelectedId("");
                     }}
                 >
                     <option value="">Select a usage category</option>
@@ -109,13 +123,13 @@ function App() {
                     type="button"
                     className="primary-button"
                     disabled={!department || !usageCategory}
-                    onClick={() => setShowResult(true)}
+                    onClick={() => pickRandomConversation()}
                 >
                     Generate conversation
                 </button>
             </section>
 
-            {showResult && selectedConversation && (
+            {selectedConversation && (
                 <section className="result-card">
                     <div className="result-heading">
                         <div>
@@ -126,6 +140,14 @@ function App() {
                             <h2>
                                 {selectedConversation.usageCategory}
                             </h2>
+
+                            <p className="variation-count">
+                                Variation{" "}
+                                {matchingConversations.indexOf(
+                                    selectedConversation
+                                ) + 1}{" "}
+                                of {matchingConversations.length}
+                            </p>
                         </div>
 
                         <span className="recommendation">
@@ -159,6 +181,18 @@ function App() {
                             <p>{selectedConversation.followUpQuestion}</p>
                         </div>
                     </article>
+
+                    {matchingConversations.length > 1 && (
+                        <button
+                            type="button"
+                            className="primary-button"
+                            onClick={() =>
+                                pickRandomConversation(selectedConversation.id)
+                            }
+                        >
+                            New variation
+                        </button>
+                    )}
 
                     <button
                         type="button"
