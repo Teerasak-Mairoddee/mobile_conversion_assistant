@@ -2,9 +2,22 @@ import { useMemo, useState } from "react";
 import { conversations } from "./data/conversations";
 import {
     departmentLabels,
+    type ConversationSeed,
     type Department,
 } from "./types/conversation";
 import "./App.css";
+
+function findConversations(
+    department: Department | "",
+    usageCategory: string
+): ConversationSeed[] {
+    return conversations.filter(
+        (conversation) =>
+            conversation.active &&
+            conversation.department === department &&
+            conversation.usageCategory === usageCategory
+    );
+}
 
 function App() {
     const [department, setDepartment] = useState<Department | "">("");
@@ -27,29 +40,33 @@ function App() {
         ];
     }, [department]);
 
-    const matchingConversations = useMemo(() => {
-        return conversations.filter(
-            (conversation) =>
-                conversation.active &&
-                conversation.department === department &&
-                conversation.usageCategory === usageCategory
-        );
-    }, [department, usageCategory]);
+    const matchingConversations = useMemo(
+        () => findConversations(department, usageCategory),
+        [department, usageCategory]
+    );
 
     const selectedConversation = matchingConversations.find(
         (conversation) => conversation.id === selectedId
     );
 
-    function pickRandomConversation(excludeId?: string) {
+    function pickRandomConversation(
+        candidates: ConversationSeed[],
+        excludeId?: string
+    ) {
         const options =
-            matchingConversations.length > 1
-                ? matchingConversations.filter(
+            candidates.length > 1
+                ? candidates.filter(
                       (conversation) => conversation.id !== excludeId
                   )
-                : matchingConversations;
+                : candidates;
         const choice = options[Math.floor(Math.random() * options.length)];
 
         setSelectedId(choice?.id ?? "");
+    }
+
+    function handleUsageChange(value: string) {
+        setUsageCategory(value);
+        pickRandomConversation(findConversations(department, value));
     }
 
     function handleDepartmentChange(value: Department | "") {
@@ -105,10 +122,7 @@ function App() {
                     id="usage"
                     value={usageCategory}
                     disabled={!department}
-                    onChange={(event) => {
-                        setUsageCategory(event.target.value);
-                        setSelectedId("");
-                    }}
+                    onChange={(event) => handleUsageChange(event.target.value)}
                 >
                     <option value="">Select a usage category</option>
 
@@ -118,15 +132,6 @@ function App() {
                         </option>
                     ))}
                 </select>
-
-                <button
-                    type="button"
-                    className="primary-button"
-                    disabled={!department || !usageCategory}
-                    onClick={() => pickRandomConversation()}
-                >
-                    Generate conversation
-                </button>
             </section>
 
             {selectedConversation && (
@@ -187,7 +192,10 @@ function App() {
                             type="button"
                             className="primary-button"
                             onClick={() =>
-                                pickRandomConversation(selectedConversation.id)
+                                pickRandomConversation(
+                                    matchingConversations,
+                                    selectedConversation.id
+                                )
                             }
                         >
                             New variation
