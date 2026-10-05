@@ -76,12 +76,6 @@ function App() {
         setSelectedId("");
     }
 
-    function resetAssistant() {
-        setDepartment("");
-        setUsageCategory("");
-        setSelectedId("");
-    }
-
     return (
         <main className="app">
             <header className="header">
@@ -221,14 +215,6 @@ function App() {
                             </div>
                         </article>
                     </div>
-
-                    <button
-                        type="button"
-                        className="secondary-button"
-                        onClick={resetAssistant}
-                    >
-                        Start another conversation
-                    </button>
                 </section>
             )}
         </main>

@@ -218,13 +218,6 @@ button {
     line-height: 1.6;
 }
 
-.secondary-button {
-    width: 100%;
-    margin-top: 12px;
-    color: #4b2bb6;
-    background: #eeeafd;
-}
-
 @media (max-width: 520px) {
     .app {
         width: min(100% - 20px, 760px);
