@@ -81,6 +81,7 @@ button {
 }
 
 .primary-button {
+    width: 100%;
     margin-top: 12px;
     color: white;
     background: #5c35d9;
@@ -106,6 +107,12 @@ button {
     .result-heading h2 {
         margin: 6px 0 0;
     }
+
+.variation-count {
+    margin: 4px 0 0;
+    color: #5d6678;
+    font-size: 0.85rem;
+}
 
 .recommendation {
     padding: 8px 12px;
