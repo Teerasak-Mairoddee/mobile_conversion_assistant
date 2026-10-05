@@ -10,7 +10,7 @@ export type Department =
 
 export const departmentLabels: Record<Department, string> = {
     Gaming: "Gaming",
-    SKA: "SKA (small kitchen appliances)",
+    SKA: "SKA",
     CESmartTech: "CE Smart Tech",
     Collections: "Collections",
     Computing: "Computing",
