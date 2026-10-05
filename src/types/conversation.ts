@@ -9,11 +9,11 @@ export type Department =
     | "Vision";
 
 export const departmentLabels: Record<Department, string> = {
-    Gaming: "Gaming Zone",
-    SKA: "SKA Zone (small kitchen appliances)",
-    CESmartTech: "CE Smart Tech Zone",
-    Collections: "Collections Zone",
-    Computing: "Computing Zone",
+    Gaming: "Gaming",
+    SKA: "SKA (small kitchen appliances)",
+    CESmartTech: "CE Smart Tech",
+    Collections: "Collections",
+    Computing: "Computing",
     KnowHow: "Know How / Cashdesk",
     MDA: "MDA",
     Vision: "Vision",
